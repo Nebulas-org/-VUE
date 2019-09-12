@@ -1,0 +1,67 @@
+@charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+i {
+  font-style: normal;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a, a:focus, a:hover {
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Microsoft YaHei","微软雅黑","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: #333;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.contain {
+  width: 1300px;
+  margin: 0 auto;
+}

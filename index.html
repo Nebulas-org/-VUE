@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>数字业务门户</title>
+
+    <script>
+      // 验证浏览器型号
+      var isMobile=function(){
+      let flag=navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrower|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+      return flag;
+    }
+
+    if(isMobile()){
+      // location.replace("https://inst.htsc.com/download/index.html")
+    }
+
+    var IEversion=function(){
+      var userAgent=navigator.userAgent;
+      // 判断是否IE<11浏览器
+      var isIE=userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+      // 判断是否是IE的Edge浏览器
+      var isEdge=userAgent.indexOf('Edge')>-1 && !isIE;
+      // ie11浏览器
+      var isIE11=userAgent.indexOf("Trident") > -1 && userAgent.indexOf("rv:11.0")>-1;
+      // 判断Ie浏览器版本
+      if(isIE){
+        var reIE=new RegExp("MEIE (\\d+\\.\\d+);")
+        reIE.test(userAgent);
+        var fIEVersion=parseFloat(RegExp["$1"]);
+        if(fIEVersion==7){
+          return 7;
+        }else if(fIEVersion==8){
+          return 8;
+        }else if(fIEVersion==9){
+          return 9;
+        }else if(fIEVersion==10){
+          return 10;
+        }else{
+          return 6;//ie版本<=7
+        }
+      }else if(isEdge){
+        return "edge";//edge
+      }else if(isIE11){
+        return 11;
+      }else{
+        return -1;//不是ie浏览器
+      }
+    }
+
+// 判断ie浏览器外的浏览器型号
+    var BrowserType=function(){
+      var userAgent = navigator.userAgent.toLowerCase()//取得浏览器的userAgent字符串
+      var isFF=userAgent.indexOf("firefox")>-1;//判断是否firefox浏览器
+      var isSafari=userAgent.indexOf("safari")>-1 && userAgent.indexOf("chrome")==-1;//判断是否Safari浏览器
+      var isChrome = userAgent.indexOf("chrome")>-1 && userAgent.indexOf('safari')>-1;//判断Chrome浏览器
+      if(isFF){
+        var ver = userAgent.match(/firefox\/([\d.]+)/)[1];
+        return {
+          type:"Firefox",
+          version:parseFloat(ver.slice(0,2))
+        };
+      }else if(isSafari){
+        var ver =userAgent.match(/version\/([\d.]+)/)[1]
+        return {
+          type:"Safari",
+          version:parseFloat(ver.slice(0,2))
+        }
+      }else if(isChrome){
+        var ver =userAgent.match(/chrome\/([\d.]+)/)[1]
+        return {
+          type:"Chrome",
+          version:parseFloat(ver.slice(0,2))
+        };
+      }else{
+        return {
+          type:'no',
+          version:0
+        }
+      }
+    }
+    // ie和其他浏览器的型号不支持就跳转到不支持页面
+    var versionObj=BrowserType()
+    var ieObj=IEversion()
+    if(versionObj.type=="Chrome" && versionObj.version<30 || 
+      versionObj.type=="Firefox" && versionObj.version<29 ||
+      versionObj.type=="Safari" && versionObj.version<8 ||
+      ieObj<10 && ieObj !==-1){
+        location.href='/static/noSupport.html'
+  }
+    
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
