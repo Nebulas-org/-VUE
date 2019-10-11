@@ -1,3 +1,4 @@
+@import "flex";
 html {
     scroll-behavior: smooth;
   }
@@ -50,7 +51,7 @@ html {
   }
   // 
   .contain{
-    width:1300px;
+    width:100%;
     margin:0 auto;
   }
   /* 公共头部 */
@@ -61,7 +62,7 @@ html {
     position: relative;
     height: 53px;
     .top{
-      width: 1300px;
+      width: 100%;
       margin: 0 auto;
       .logo{
         position: relative;
@@ -270,10 +271,11 @@ html {
       margin: 0 auto;
       box-sizing: border-box;
       font-family:MicrosoftYaHei;
-      width: 1300px;
-      padding: 46px 0 62px 0;
+      width: 100%;
+      padding: 46px 20px 62px 20px;
+      display: flex;
       .contact-box{
-        float: left;
+        flex: 2;
         h3{
           @extend %h3;
         }
@@ -296,7 +298,7 @@ html {
         }
       }
       .service-box{
-        float: left;
+        flex: 3;
         margin-left: 290px;
         h3{
           @extend %h3;
@@ -315,7 +317,7 @@ html {
         }
       }
       .qrcode-box{
-        float: left;
+        flex: 2;
         margin-left: 290px;
         h3{
           @extend %h3;
@@ -357,5 +359,4 @@ html {
       }
     }
   }
-  
   

@@ -14,10 +14,7 @@
         <ul class="nav-list clearfix" :class="{'nav-list-active': navFlag&&xsParent}">
           <li :class="{'nav-active':routeName == 'index'}"><router-link to="/index">首页</router-link></li>
           <li :class="{'nav-active':routeName == 'productDetail'}"><router-link to="/productDetail">产品</router-link></li>
-          <li :class="{'nav-active':routeName == 'solve'}"><router-link to="/solve">解决方案</router-link></li>
-          <li :class="{'nav-active':routeName == 'document'}"><router-link to="/document">文档中心</router-link></li>
-          <li :class="{'nav-active':routeName == 'dynamics'}"><router-link to="/dynamics">HUATECH动态</router-link></li>
-          <li :class="{'nav-active':routeName == 'coalition'}"><router-link to="/coalition">数字金融共建联盟</router-link></li>
+          <li :class="{'nav-active':routeName == 'solve'}"><router-link to="/solve">上云解决方案</router-link></li>
           <li :class="{'nav-active':routeName == 'aboutUs'}"><router-link to="/aboutUs">关于我们</router-link></li>
         </ul>
       </div>

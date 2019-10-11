@@ -232,6 +232,7 @@ export default {
   .index-box{
     /* 标题公共样式 */
     %h3{
+      padding-left: 20px;
       font-size: 24px;
       font-weight: bold;
       color: #000;
@@ -245,7 +246,6 @@ export default {
       height: auto;
       cursor: pointer;
       position: relative;
-      min-width: 1300px;
       .bg{
         width: 100%;
         height: 100%;
@@ -254,7 +254,7 @@ export default {
         position: absolute;
         top: 50%;
         box-sizing: border-box;
-        width: 1300px;
+        width: 100%;
         left: 50%;
         transform: translate(-50% ,-60%);
         -webkit-transform: translate(-50% ,-60%);
@@ -289,16 +289,14 @@ export default {
       width: 100%;
       box-sizing: border-box;
       margin : 0 auto;
-      width: 1300px;
       padding: 70px 0 89px 0;
       h3{
         @extend %h3;
         box-sizing: border-box;
-        padding-left: 8px;
       }
       .product-list{
-        margin-top: 71px;
-        width: 1356px;
+        margin-top: 40px;
+        padding-left: 20px;
         .product-item{
           float: left;
           position: relative;
@@ -332,7 +330,7 @@ export default {
       background-size: 100% 100%;
       .solve{
         box-sizing: border-box;
-        width: 1300px;
+        width: 100%;
         margin: 0 auto;
         padding: 69px 0 117px 0;
         h3{
@@ -359,6 +357,7 @@ export default {
               top: 1px;
             }
             .bottom{
+              padding-right: 20px;
               font-size: 14px;
               margin-top: 15px;
             }
@@ -370,7 +369,6 @@ export default {
     .customer{
       width: 100%;
       box-sizing: border-box;
-      width: 1300px;
       margin: 0 auto;
       padding: 68px  0  106px 0;
       h3{
@@ -409,7 +407,7 @@ export default {
       background-size: 100% 100%;
       .dynamic{
         box-sizing: border-box;
-        width: 1300px;
+        width: 100%;
         margin: 0 auto;
         padding: 68px 0 88px 0;
         h3{
@@ -418,20 +416,23 @@ export default {
         .dynamic-list{
           box-sizing: border-box;
           padding-top: 72px;
+          display: flex;
+          flex-wrap: wrap;
           .dynamic-item{
-            float: left;
+            flex-shrink: 0;
+            display: flex;
+            margin: 0 20px 20px;
             box-sizing: border-box;
             background-color: #fff;
-            box-shadow:0px 6px 13px 0px rgba(96,96,96,0.3);
+            box-shadow:0 6px 13px 0 rgba(96,96,96,0.3);
             border-radius:4px;
             cursor: pointer;
             transition: all .2s linear;
-            width: 630px;
+            width: 600px;
             height: 148px;
-            margin-bottom: 20px;
             .item-left{
               height: 100%;
-              float: left;
+              flex-shrink: 0;
               width: 262px;
               img{
                 width: 100%;
@@ -442,7 +443,6 @@ export default {
             .item-right{
               height: 100%;
               box-sizing: border-box;
-              float: right;
               color: #333;
               width: 366px;
               padding: 36px 26px 0 26px;

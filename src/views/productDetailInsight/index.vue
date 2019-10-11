@@ -376,7 +376,6 @@ export default {
         margin: 0 auto;
         color: #FFFFFF;
         box-sizing: border-box;
-        width: 1300px;
         padding-top: 133px;
         padding-left: 34px;
         padding-bottom: 173px;
@@ -409,7 +408,7 @@ export default {
           box-sizing: border-box;
           margin: 0 auto;
           position: relative;
-          width:1300px;
+          width:100%;
           padding-left: 34px;
           .nav-item{
             cursor: pointer;
@@ -446,7 +445,7 @@ export default {
         .profile{
           box-sizing: border-box;
           margin: 0 auto;
-          width: 1300px;
+          width: 100%;
           padding-left: 34px;
           padding-top: 150px;
           padding-bottom: 97px;
@@ -467,7 +466,7 @@ export default {
       .advantage{
         box-sizing: border-box;
         margin: 0 auto;
-        width: 1300px;
+        width: 100%;
         padding-left: 74px;
         padding-top: 60px;
         .title{
@@ -516,7 +515,7 @@ export default {
         .scene{
           box-sizing: border-box;
           margin: 0 auto;
-          width: 1300px;
+          width: 100%;
           padding-left: 74px;
           padding-top: 60px;
           padding-bottom: 101px;
@@ -579,7 +578,7 @@ export default {
       .function{
         box-sizing: border-box;
         margin: 0 auto;
-        width: 1300px;
+        width: 100%;
         padding-left: 34px;
         padding-top: 60px;
         padding-bottom: 127px;
@@ -800,7 +799,7 @@ export default {
         .document{
           box-sizing: border-box;
           margin: 0 auto;
-          width: 1300px;
+          width: 100%;
           padding-top: 60px;
           padding-bottom: 83px;
           h3{
