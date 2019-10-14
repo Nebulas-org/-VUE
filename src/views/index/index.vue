@@ -5,11 +5,11 @@
       <el-carousel :interval="3000" arrow="never" :indicator-position="bannerLists.length > 1?'':'none'">
         <el-carousel-item v-for="(item, index) in bannerLists" :key="index">
           <img class="bg" :src="item.bgUrl">
-          <div class="msg">
-            <img class="logo" :src="item.logoUrl">
-            <div class="title">{{item.title}}</div>
-            <div class="btn">{{item.btnTxt}}</div>
-          </div>
+          <!--<div class="msg">-->
+            <!--<img class="logo" :src="item.logoUrl">-->
+            <!--<div class="title">{{item.title}}</div>-->
+            <!--<div class="btn">{{item.btnTxt}}</div>-->
+          <!--</div>-->
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -22,8 +22,7 @@
             class="product-item" 
             v-for="(item, index) in productLists"
             :to="item.url" 
-            :key="index"
-          >
+            :key="index">
               <img :src="item.bgUrl">
               <div class="msg">
                 <p class="name">{{item.name}} </p>
@@ -35,7 +34,7 @@
     <!-- 解决方案 -->
     <div class="solve-box">
       <div class="solve">
-        <h3>解决方案</h3>
+        <h3>上云解决方案</h3>
         <div class="solve-content">
           <el-tabs :tab-position="xs?'top':'left'">
             <el-tab-pane :label="item.title" v-for="(item,index) in solveLists" :key="index">
@@ -94,11 +93,16 @@ export default {
       xs: this.xsParent,
       // 轮播图数组
       bannerLists:[
+        // {
+        //   logoUrl: require("../../assets/images/index/banner-logo.png"),
+        //   bgUrl: require("../../assets/images/index/banner.png"),
+        //   title: "聚生态精英 行数字之道",
+        //   btnTxt: "立即加入",
+        // },
         {
-          logoUrl: require("../../assets/images/index/banner-logo.png"),
-          bgUrl: require("../../assets/images/index/banner.png"),
-          title: "聚生态精英 行数字之道",
-          btnTxt: "立即加入",
+          bgUrl: require("../../assets/images/index/banner1.jpg")
+        }, {
+          bgUrl: require("../../assets/images/index/banner2.jpg")
         }
       ],
       // 我们的产品数组

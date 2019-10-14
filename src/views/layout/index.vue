@@ -5,8 +5,6 @@
       <div class="top clearfix">
         <router-link tag="div" to="/index" class="logo">
         <img src="../../assets/images/logo.png">
-        <span class="logo-top">数字服务 • 华泰证券</span>
-        <span class="logo-bottom">HUATAI SECURITIES</span>
         </router-link>
         <span class="nav-btn" @click="navShow" v-show="xsParent">
           <i class="el-icon-menu"></i>
