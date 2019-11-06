@@ -14,7 +14,7 @@
       </el-carousel>
     </div>
     <!-- 我们的产品 -->
-    <div class="product">
+    <a class="product" name="product">
       <h3>我们的产品</h3>
       <ul class="product-list clearfix">
           <router-link 
@@ -30,9 +30,9 @@
               </div>
           </router-link>
       </ul>
-    </div>
+    </a>
     <!-- 解决方案 -->
-    <div class="solve-box">
+    <a class="solve-box" name="solve">
       <div class="solve">
         <h3>上云解决方案</h3>
         <div class="solve-content">
@@ -47,38 +47,38 @@
           </el-tabs>
         </div>
       </div>
-    </div>
+    </a>
     <!-- 合作客户 -->
-    <div class="customer">
-      <h3>合作客户</h3>
-      <ul class="customer-list clearfix">
-        <li class="customer-item" v-for="(item,index) in customerLists">
-          <img :src="item.url">
-        </li>
-      </ul>
-    </div>
+    <!--<div class="customer">-->
+      <!--<h3>合作客户</h3>-->
+      <!--<ul class="customer-list clearfix">-->
+        <!--<li class="customer-item" v-for="(item,index) in customerLists">-->
+          <!--<img :src="item.url">-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
     <!-- HUATECH 动态 -->
-    <div class="dynamic-box">
-      <div class="dynamic">
-        <h3>HUATECH 动态</h3>
-        <ul class="dynamic-list clearfix">
-          <li class="dynamic-item clearfix" 
-            v-for="(item, index) in dynamicLists"
-            v-on:mouseover="dynamicActive = index"
-            v-on:mouseout="dynamicActive = -1"
-            :class="{'dynamic-active' : dynamicActive == index}"
-          >
-            <div class="item-left">
-              <img :src="item.url">
-            </div>
-            <div class="item-right">
-              <p class="title">{{item.title}}</p>
-              <p class="date">{{item.date}}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <!--<div class="dynamic-box">-->
+      <!--<div class="dynamic">-->
+        <!--<h3>HUATECH 动态</h3>-->
+        <!--<ul class="dynamic-list clearfix">-->
+          <!--<li class="dynamic-item clearfix" -->
+            <!--v-for="(item, index) in dynamicLists"-->
+            <!--v-on:mouseover="dynamicActive = index"-->
+            <!--v-on:mouseout="dynamicActive = -1"-->
+            <!--:class="{'dynamic-active' : dynamicActive == index}"-->
+          <!--&gt;-->
+            <!--<div class="item-left">-->
+              <!--<img :src="item.url">-->
+            <!--</div>-->
+            <!--<div class="item-right">-->
+              <!--<p class="title">{{item.title}}</p>-->
+              <!--<p class="date">{{item.date}}</p>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 
@@ -290,6 +290,7 @@ export default {
     }
     /* 我们的产品 */
     .product{
+      display: block;
       width: 100%;
       box-sizing: border-box;
       margin : 0 auto;
@@ -329,6 +330,7 @@ export default {
     }
     /* 解决方案 */
     .solve-box{
+      display: block;
       width: 100%;
       background: url(../../assets/images/index/solve-bg.png) no-repeat center center;
       background-size: 100% 100%;

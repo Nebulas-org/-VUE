@@ -11,9 +11,9 @@
         </span>
         <ul class="nav-list clearfix" :class="{'nav-list-active': navFlag&&xsParent}">
           <li :class="{'nav-active':routeName == 'index'}"><router-link to="/index">首页</router-link></li>
-          <li :class="{'nav-active':routeName == 'productDetail'}"><router-link to="/productDetail">产品</router-link></li>
-          <li :class="{'nav-active':routeName == 'solve'}"><router-link to="/solve">上云解决方案</router-link></li>
-          <li :class="{'nav-active':routeName == 'aboutUs'}"><router-link to="/aboutUs">关于我们</router-link></li>
+          <li :class="{'nav-active':routeName == 'product'}"><a href="#product">产品</a></li>
+          <li :class="{'nav-active':routeName == 'solve'}"><a href="#solve">上云解决方案</a></li>
+          <li :class="{'nav-active':routeName == 'aboutUs'}"><a href="#aboutUs">关于我们</a></li>
         </ul>
       </div>
       <!-- 搜索登录注册 -->
@@ -44,35 +44,38 @@
 
     <!-- 公共底部 -->
     <footer class="footer" :class="xsParent?'footer-xs':'footer-xl'">
-      <div class="contain clearfix">
-        <div class="contact-box">
-          <h3>联系我们</h3>
-          <ul class="contact-list">
-            <li class="contact-item ">
-              <img src="../../assets/images/mail.png">digi_tech_supp@htsc.com
-            </li>
-            <li class="contact-item ">
-              <img src="../../assets/images/addr.png">江苏省南京市江东中路228号
-            </li>
-          </ul>
+      <a name="aboutUs" style="display: block;">
+        <div class="contain clearfix">
+          <div class="contact-box">
+            <h3>联系我们</h3>
+            <ul class="contact-list">
+              <li class="contact-item ">
+                <img src="../../assets/images/mail.png">digi_tech_supp@htsc.com
+              </li>
+              <li class="contact-item ">
+                <img src="../../assets/images/addr.png">江苏省南京市江东中路228号
+              </li>
+            </ul>
+          </div>
+          <div class="service-box">
+            <h3>产品与服务</h3>
+            <ul class="service-list">
+              <li class="service-item">综合金融终端MATIC</li>
+              <li class="service-item">INSIGHT行情服务</li>
+              <li class="service-item">信用风险分析管理系统</li>
+              <li class="service-item">FOF投研一体化管理平台LENS</li>
+              <li class="service-item">INCOS管理人服务</li>
+              <li class="service-item">金融数据港湾iBay</li>
+            </ul>
+          </div>
+          <div class="qrcode-box">
+            <h3>关注我们</h3>
+            <img src="../../assets/images/qrcode.png">
+            <p>华泰证券数字科技</p>
+          </div>
         </div>
-        <div class="service-box">
-          <h3>产品与服务</h3>
-          <ul class="service-list">
-            <li class="service-item">综合金融终端MATIC</li>
-            <li class="service-item">INSIGHT行情服务</li>
-            <li class="service-item">信用风险分析管理系统</li>
-            <li class="service-item">FOF投研一体化管理平台LENS</li>
-            <li class="service-item">INCOS管理人服务</li>
-            <li class="service-item">金融数据港湾iBay</li>
-          </ul>
-        </div>
-        <div class="qrcode-box">
-          <h3>关注我们</h3>
-          <img src="../../assets/images/qrcode.png">
-          <p>华泰证券数字科技</p>
-        </div>
-      </div>
+      </a>
+
     </footer>
   </div>
 </template>
