@@ -72,7 +72,7 @@ html {
         img{
           height: auto;
           margin-right: 13px;
-          margin-top: 10px;
+          margin-top: 5px;
         }
         .logo-top{
           font-family: FZLTZHK--GBK1-0;
@@ -252,87 +252,6 @@ html {
       color:#fff;
       &:nth-of-type(3){
         margin-top: 10px;
-      }
-    }
-  }
-  /* 公共底部*/
-  .footer{
-    /* 标题公共样式 */
-    %h3{
-      font-size:18px;
-      line-height: 18px;
-      font-weight:400;
-      color:#fff;
-    }
-    width: 100%;
-    background: #272C37;
-    .contain{
-      margin: 0 auto;
-      box-sizing: border-box;
-      font-family:MicrosoftYaHei;
-      width: 100%;
-      padding: 46px 20px 62px 20px;
-      display: flex;
-      .contact-box{
-        flex: 2;
-        h3{
-          @extend %h3;
-        }
-        .contact-list{
-          margin-top: 15.5px;
-          .contact-item{
-            font-size: 14px;
-            line-height: 23px;
-            color:#999;
-            margin-bottom: 11px;
-            img{
-              width: 23px;
-              height: auto;
-              margin-right: 10px;
-            }
-            &:last-child{
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-      .service-box{
-        flex: 3;
-        margin-left: 290px;
-        h3{
-          @extend %h3;
-        }
-        .service-list{
-          margin-top: 20px;
-          .service-item{
-            font-size: 14px;
-            line-height: 14px;
-            color:#999;
-            margin-bottom: 14px;
-            &:last-child{
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-      .qrcode-box{
-        flex: 2;
-        margin-left: 290px;
-        h3{
-          @extend %h3;
-        }
-        img{
-          width: 110px;
-          height: auto;
-          margin-top: 20px;
-        }
-        p{
-          font-size:14px;
-          line-height: 14px;
-          font-weight:400;
-          color:#fff;
-          margin-top: 11px;
-        }
       }
     }
   }

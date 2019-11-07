@@ -17,18 +17,27 @@
     <a class="product" name="product">
       <h3>我们的产品</h3>
       <ul class="product-list clearfix">
-          <router-link 
-            tag="li"
-            class="product-item" 
-            v-for="(item, index) in productLists"
-            :to="item.url" 
-            :key="index">
-              <img :src="item.bgUrl">
-              <div class="msg">
-                <p class="name">{{item.name}} </p>
-                <p class="abridge">{{item.abridge}}</p>
-              </div>
-          </router-link>
+        <li v-for="(item, index) in productLists"
+            class="product-item"
+            :key="index" @click="showDialog(item)">
+          <img :src="item.bgUrl">
+          <div class="msg">
+            <p class="name">{{item.name}} </p>
+            <p class="abridge">{{item.abridge}}</p>
+          </div>
+        </li>
+          <!--<router-link -->
+            <!--tag="li"-->
+            <!--class="product-item" -->
+            <!--v-for="(item, index) in productLists"-->
+            <!--:to="item.url" -->
+            <!--:key="index">-->
+              <!--<img :src="item.bgUrl">-->
+              <!--<div class="msg">-->
+                <!--<p class="name">{{item.name}} </p>-->
+                <!--<p class="abridge">{{item.abridge}}</p>-->
+              <!--</div>-->
+          <!--</router-link>-->
       </ul>
     </a>
     <!-- 解决方案 -->
@@ -39,46 +48,32 @@
           <el-tabs :tab-position="xs?'top':'left'">
             <el-tab-pane :label="item.title" v-for="(item,index) in solveLists" :key="index">
               <div class="solve-msg">
-                <img :src="item.url">
-                <p class="top">{{item.title}}</p>
-                <p class="bottom">{{item.txt}}</p>
+                <!--<img :src="item.url">-->
+                <!--<p>{{item.title}}</p>-->
+                <div class="flex-row justify-content-between">
+                  <p v-for="(t, tIndex) in item.txt"
+                     :key="tIndex + t"
+                       class="bottom" v-html="t">
+                  </p>
+                </div>
+
               </div>
             </el-tab-pane>
           </el-tabs>
         </div>
       </div>
     </a>
-    <!-- 合作客户 -->
-    <!--<div class="customer">-->
-      <!--<h3>合作客户</h3>-->
-      <!--<ul class="customer-list clearfix">-->
-        <!--<li class="customer-item" v-for="(item,index) in customerLists">-->
-          <!--<img :src="item.url">-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-    <!-- HUATECH 动态 -->
-    <!--<div class="dynamic-box">-->
-      <!--<div class="dynamic">-->
-        <!--<h3>HUATECH 动态</h3>-->
-        <!--<ul class="dynamic-list clearfix">-->
-          <!--<li class="dynamic-item clearfix" -->
-            <!--v-for="(item, index) in dynamicLists"-->
-            <!--v-on:mouseover="dynamicActive = index"-->
-            <!--v-on:mouseout="dynamicActive = -1"-->
-            <!--:class="{'dynamic-active' : dynamicActive == index}"-->
-          <!--&gt;-->
-            <!--<div class="item-left">-->
-              <!--<img :src="item.url">-->
-            <!--</div>-->
-            <!--<div class="item-right">-->
-              <!--<p class="title">{{item.title}}</p>-->
-              <!--<p class="date">{{item.date}}</p>-->
-            <!--</div>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
+
+    <el-dialog
+      v-if="dialogData"
+      :title="dialogData.name"
+               :visible.sync="dialogVisible">
+     <template v-if="dialogData.code === 'design'">
+       <div class="flex-row flex-wrap"></div>
+     </template>
+     <template v-if="dialogData.code === 'search'"></template>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -89,16 +84,12 @@ import {session} from 'util/stroage'
 export default {
   data() {
     return {
+      dialogData: null,
+      dialogVisible: false,
       // 判断屏幕大小
       xs: this.xsParent,
       // 轮播图数组
       bannerLists:[
-        // {
-        //   logoUrl: require("../../assets/images/index/banner-logo.png"),
-        //   bgUrl: require("../../assets/images/index/banner.png"),
-        //   title: "聚生态精英 行数字之道",
-        //   btnTxt: "立即加入",
-        // },
         {
           bgUrl: require("../../assets/images/index/banner1.jpg")
         }, {
@@ -110,104 +101,32 @@ export default {
         {
           url:"/productDetailMatic",
           bgUrl: require("../../assets/images/index/matic.png"),
-          name: "综合金融终端",
-          abridge: "MATIC"
+          name: "设计类",
+          abridge: "DESIGN",
+          code: 'design'
         },{
           url:"/productDetailInsight",
           bgUrl: require("../../assets/images/index/insight.png"),
-          name: "行情服务",
-          abridge: "INSIGHT"
-        },{
-          url:"/productDetailIsee",
-          bgUrl: require("../../assets/images/index/isee.png"),
-          name: "信用风险分析管理系统",
-          abridge: "ISEE"
-        },{
-          url:"/productDetailLens",
-          bgUrl: require("../../assets/images/index/lens.png"),
-          name: "FOF投研一体化管理平台",
-          abridge: "LENS"
-        },{
-          url:"/productDetailIncos",
-          bgUrl: require("../../assets/images/index/incos.png"),
-          name: "管理人服务平台",
-          abridge: "INCOS"
-        },{
-          url:"/productDetailIbay",
-          bgUrl: require("../../assets/images/index/ibay.png"),
-          name: "金融数据港湾",
-          abridge: "IBAY"
-        },
+          name: "研发类",
+          abridge: "R & D CENTER",
+          code: 'search'
+        }
       ],
-      // 进度条位置 
-      tabPosition: "left",
       // 解决方案
       solveLists:[
         { 
           url: require("../../assets/images/index/solve-icon.png"),
-          title: "交易全栈解决方案",
-          txt: "华泰证券依托公司业务积累和技术平台能力，为机构客户提供从行情接入、交易平台、交易引擎、极速交易系统和极速交易网络等一揽子的交易解决方案，通过金融科技赋能机构客户，提升交易体验，把握投资机会，赢得未来先机。",
+          title: "上云介绍",
+          txt: ["针对传统机房的老化，日益增加的海量沉重的数据量，不稳定的机房环境，" +
+            "我司提供有力的数据保护迁移，提供数据备份，保障数据安全。由多名深耕行业数年的专业技术人员提请全力的技术保障与支持，欢迎洽谈!"]
         },{
           url: require("../../assets/images/index/solve-icon.png"),
-          title: "资产管理综合解决方案",
-          txt: "华泰证券基于多年市场实践，结合资管同业需求，推出集债券投资研究、投资管理、交易执行、运营管理、投资评价于一体的整体专业化解决方案，致力于服务银行等机构完成资产管理业务主动管理的转型升级。",
+          title: "上云解决方案",
+          txt: ["1、华为云 <br/> 基础配置：服务器+数据库（mysql+mongoDB，redis）<br/>中等配置建议参考费用：约 <strong>30000</strong> 元/年 （配置不同，价格不同",
+            "2、阿里云 <br/> 基础配置：服务器+数据库（mysql+mongoDB，redis）<br/>中等配置建议参考费用：约 <strong>36000</strong> 元/年 （配置不同，价格不同",
+            "3、腾讯云 <br/> 基础配置：服务器+数据库（mysql+mongoDB，redis）<br/>中等配置建议参考费用：约 <strong>39000</strong> 元/年 （配置不同，价格不同）<br/>"]
         }
-      ],
-      //合作客户
-      customerLists:[
-        {
-          url: require("../../assets/images/index/customer-logo1.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo2.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo3.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo4.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo5.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo6.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo7.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo8.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo9.png")
-        },
-        {
-          url: require("../../assets/images/index/customer-logo10.png")
-        }
-      ],
-      // HUATECH 动态 
-      dynamicLists:[
-        {
-          url:require("../../assets/images/index/dynamic1.png"),
-          title:"科技赋能，INCOS助力合作伙伴发展！",
-          date:"2019-05-22"
-        },{
-          url:require("../../assets/images/index/dynamic2.png"),
-          title:"华泰证券行情数据传输优化实践",
-          date:"2019-05-22"
-        },{
-          url:require("../../assets/images/index/dynamic3.png"),
-          title:"2019年华泰证券科技博览会精彩回顾",
-          date:"2019-05-22"
-        },{
-          url:require("../../assets/images/index/dynamic4.png"),
-          title:"自然语言处理在金融投资领域的应用",
-          date:"2019-05-22"
-        }
-      ],
-      // HUATECH 动态鼠标放上的下表
-      dynamicActive:-1,
+      ]
     };
   },
   metaInfo: {
@@ -226,12 +145,14 @@ export default {
   created(){
     // console.log({ apiHome,apiIndex })
   },
-  methods: {  
+  methods: {
+    showDialog(data) {}
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
   /* 首页 */
   .index-box{
     /* 标题公共样式 */
@@ -302,14 +223,15 @@ export default {
       .product-list{
         margin-top: 40px;
         padding-left: 20px;
+        display: flex;
         .product-item{
-          float: left;
+          flex: 1;
           position: relative;
           cursor: pointer;
-          width: 226px;
           img{
+            display: inline-block;
             width: 100%;
-            height: auto;
+            height: 150px;
           }
           .msg{
             position: absolute;
@@ -354,7 +276,7 @@ export default {
             line-height:26px;
             margin-top: 17px;
             position: relative;
-            padding-left: 166px;
+            padding-left: 80px;
             img{
               position: absolute;
               width: 27px;

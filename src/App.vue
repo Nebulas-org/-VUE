@@ -14,8 +14,8 @@ export default {
     }
   },
   metaInfo:{
-    title:'数字门户',
-    titleTemplate:'数字门户 | %s'
+    title:'拾星云科技',
+    titleTemplate:'拾星云科技 | %s'
   },
   data(){
     return {
