@@ -54,7 +54,7 @@
     <el-dialog
       v-if="dialogData"
       :title="dialogData.name"
-      width="80%"
+      width="60%"
       append-to-body
       :visible.sync="dialogVisible">
       <ul class="flex-row flex-wrap justify-content-between dialogList">
