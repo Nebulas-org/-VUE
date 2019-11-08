@@ -26,18 +26,6 @@
             <p class="abridge">{{item.abridge}}</p>
           </div>
         </li>
-          <!--<router-link -->
-            <!--tag="li"-->
-            <!--class="product-item" -->
-            <!--v-for="(item, index) in productLists"-->
-            <!--:to="item.url" -->
-            <!--:key="index">-->
-              <!--<img :src="item.bgUrl">-->
-              <!--<div class="msg">-->
-                <!--<p class="name">{{item.name}} </p>-->
-                <!--<p class="abridge">{{item.abridge}}</p>-->
-              <!--</div>-->
-          <!--</router-link>-->
       </ul>
     </a>
     <!-- 解决方案 -->
@@ -56,7 +44,6 @@
                        class="bottom" v-html="t">
                   </p>
                 </div>
-
               </div>
             </el-tab-pane>
           </el-tabs>
@@ -67,13 +54,22 @@
     <el-dialog
       v-if="dialogData"
       :title="dialogData.name"
-               :visible.sync="dialogVisible">
-     <template v-if="dialogData.code === 'design'">
-       <div class="flex-row flex-wrap"></div>
-     </template>
-     <template v-if="dialogData.code === 'search'"></template>
+      width="80%"
+      append-to-body
+      :visible.sync="dialogVisible">
+      <ul class="flex-row flex-wrap justify-content-between dialogList">
+        <li v-for="(item,index) in dialogData.productData" :key="index" class="flex-column flex-center">
+          <img :src="item.bgUrl" alt="" />
+          <el-button type="text" @click.stop="handleReview(item)">查看大图</el-button>
+        </li>
+      </ul>
     </el-dialog>
 
+    <el-dialog
+               append-to-body
+               :visible.sync="dialogImgVisible">
+      <img width="100%" :src="dialogImageUrl" alt="">
+    </el-dialog>
   </div>
 </template>
 
@@ -85,6 +81,8 @@ export default {
   data() {
     return {
       dialogData: null,
+      dialogImageUrl: null,
+      dialogImgVisible: false,
       dialogVisible: false,
       // 判断屏幕大小
       xs: this.xsParent,
@@ -96,6 +94,7 @@ export default {
           bgUrl: require("../../assets/images/index/banner2.jpg")
         }
       ],
+
       // 我们的产品数组
       productLists:[
         {
@@ -103,13 +102,35 @@ export default {
           bgUrl: require("../../assets/images/index/matic.png"),
           name: "设计类",
           abridge: "DESIGN",
-          code: 'design'
+          code: 'design',
+          productData:[
+            {
+              bgUrl: require("../../assets/images/designImg/1.png")
+            }, {
+              bgUrl: require("../../assets/images/designImg/2.png")
+            }, {
+              bgUrl: require("../../assets/images/designImg/3.png")
+            }, {
+              bgUrl: require("../../assets/images/designImg/4.jpg")
+            }, {
+              bgUrl: require("../../assets/images/designImg/5.png")
+            }
+          ]
         },{
           url:"/productDetailInsight",
           bgUrl: require("../../assets/images/index/insight.png"),
           name: "研发类",
           abridge: "R & D CENTER",
-          code: 'search'
+          code: 'search',
+          productData:[
+            {
+              bgUrl: require("../../assets/images/searchImg/1.png")
+            }, {
+              bgUrl: require("../../assets/images/searchImg/2.png")
+            }, {
+              bgUrl: require("../../assets/images/searchImg/3.png")
+            }
+          ]
         }
       ],
       // 解决方案
@@ -146,13 +167,26 @@ export default {
     // console.log({ apiHome,apiIndex })
   },
   methods: {
-    showDialog(data) {}
+    showDialog(data) {
+      this.dialogVisible = true
+      this.dialogData = data
+    },
+    handleReview(data) {
+      this.dialogImgVisible = true
+      this.dialogImageUrl = data.bgUrl
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
+  .dialogList {
+    img {
+      display: inline-block;
+      width: 100px;
+      height: 150px;
+    }
+  }
   /* 首页 */
   .index-box{
     /* 标题公共样式 */
