@@ -59,7 +59,7 @@
       :visible.sync="dialogVisible">
       <ul class="flex-row flex-wrap justify-content-between dialogList">
         <li v-for="(item,index) in dialogData.productData" :key="index" class="flex-column flex-center">
-          <img :src="item.bgUrl" alt="" />
+          <img :src="item.smUrl" alt="" />
           <el-button type="text" @click.stop="handleReview(item)">查看大图</el-button>
         </li>
       </ul>
@@ -89,7 +89,7 @@ export default {
       // 轮播图数组
       bannerLists:[
         {
-          bgUrl: require("../../assets/images/index/banner1.jpg")
+          bgUrl: require("../../assets/images/index/banner1.jpeg")
         }, {
           bgUrl: require("../../assets/images/index/banner2.jpg")
         }
@@ -105,15 +105,20 @@ export default {
           code: 'design',
           productData:[
             {
-              bgUrl: require("../../assets/images/designImg/1.png")
+              bgUrl: require("../../assets/images/designImg/1.png"),
+              smUrl: require("../../assets/images/designImg/sm_1.jpg")
             }, {
-              bgUrl: require("../../assets/images/designImg/2.png")
+              bgUrl: require("../../assets/images/designImg/2.png"),
+              smUrl: require("../../assets/images/designImg/sm_2.jpg")
             }, {
-              bgUrl: require("../../assets/images/designImg/3.png")
+              bgUrl: require("../../assets/images/designImg/3.png"),
+              smUrl: require("../../assets/images/designImg/sm_3.jpg")
             }, {
-              bgUrl: require("../../assets/images/designImg/4.jpg")
+              bgUrl: require("../../assets/images/designImg/4.jpg"),
+              smUrl: require("../../assets/images/designImg/sm_4.jpg")
             }, {
-              bgUrl: require("../../assets/images/designImg/5.png")
+              bgUrl: require("../../assets/images/designImg/5.png"),
+              smUrl: require("../../assets/images/designImg/sm_5.jpg")
             }
           ]
         },{
@@ -124,11 +129,14 @@ export default {
           code: 'search',
           productData:[
             {
-              bgUrl: require("../../assets/images/searchImg/1.png")
+              bgUrl: require("../../assets/images/searchImg/1.png"),
+              smUrl: require("../../assets/images/searchImg/sm_1.jpg")
             }, {
-              bgUrl: require("../../assets/images/searchImg/2.png")
+              bgUrl: require("../../assets/images/searchImg/2.png"),
+              smUrl: require("../../assets/images/searchImg/sm_2.jpg")
             }, {
-              bgUrl: require("../../assets/images/searchImg/3.png")
+              bgUrl: require("../../assets/images/searchImg/3.png"),
+              smUrl: require("../../assets/images/searchImg/sm_3.jpg")
             }
           ]
         }
@@ -183,8 +191,8 @@ export default {
   .dialogList {
     img {
       display: inline-block;
-      width: 100px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
     }
   }
   /* 首页 */
