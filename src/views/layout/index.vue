@@ -2,7 +2,7 @@
   <div id="layout">
     <!-- 公共头部 -->
     <header class="header" :class="xsParent?'header-xs':'header-xl'">
-      <div class="top clearfix" style="padding-left: 10px;">
+      <div class="top clearfix" style="padding-left: 30px;">
         <router-link tag="div" to="/index" class="logo">
           <img src="../../assets/images/logo.png">
         </router-link>
@@ -77,8 +77,8 @@
             <li @click="handleDialog('contact')">
               <el-button type="text">联系我们</el-button>
             </li>
-
           </ul>
+          <p class="bei-an">蜀ICP备19037210号</p>
         </div>
       </a>
 
@@ -278,7 +278,13 @@
       width: 100%;
       padding: 40px 20px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      .bei-an {
+        color: #dad3d3;
+        font-size: 14px;
+      }
       .contact-box {
         display: flex;
         h3 {

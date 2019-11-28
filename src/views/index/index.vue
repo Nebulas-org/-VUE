@@ -267,7 +267,6 @@ export default {
         padding-left: 20px;
         display: flex;
         .product-item{
-          flex: 1;
           position: relative;
           cursor: pointer;
           img{
