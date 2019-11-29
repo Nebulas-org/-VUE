@@ -78,7 +78,10 @@
               <el-button type="text">联系我们</el-button>
             </li>
           </ul>
-          <p class="bei-an">蜀ICP备19037210号</p>
+          <a href="http://icp.chinaz.com/info?q=nebulas3w.com" class="bei-an">
+            <img src="./../../assets/images/footer/gongan.png" alt="">
+            <span>蜀ICP备19037210号</span>
+          </a>
         </div>
       </a>
 
@@ -284,6 +287,13 @@
       .bei-an {
         color: #dad3d3;
         font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 25px;
+          height: 25px;
+        }
       }
       .contact-box {
         display: flex;
